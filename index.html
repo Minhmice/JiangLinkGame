@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="vi">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thiết lập thông tin - Bài tập HTML Form</title>
+  <link rel="stylesheet" href="styles.css">
+ </head>
+ <body lang="vi">
+  <div class="wrapper">
+   <div>
+    <div class="header">
+     <h1>🍳 Vòng 3: Nấu</h1>
+     <p>Thiết lập thông tin trước khi bắt đầu nấu ăn</p>
+    </div>
+    <div class="intro-card animate-fade-in">
+     <h2>🍽️ Chuẩn bị nấu ăn</h2>
+     <p>Chọn nhóm của bạn và thời gian nấu ăn trước khi bắt đầu thử thách nấu ăn 10 món!</p>
+     <div class="user-info-grid">
+      <label class="form-control animate-slide-up" style="animation-delay: 0.1s;">
+       Nhóm học
+       <select id="groupSelect">
+        <option value="1">Nhóm 1</option>
+        <option value="2">Nhóm 2</option>
+        <option value="3">Nhóm 3</option>
+        <option value="4">Nhóm 4</option>
+        <option value="5">Nhóm 5</option>
+        <option value="6">Nhóm 6</option>
+       </select>
+      </label>
+      <label class="form-control animate-slide-up" style="animation-delay: 0.2s;">
+       Thời gian nấu ăn (phút)
+       <input type="number" id="durationInput" min="5" max="15" step="1" value="5" class="duration-input">
+      </label>
+     </div>
+     <div class="start-actions animate-slide-up" style="animation-delay: 0.3s;">
+      <button class="btn-start" id="startBtn">🚀 Bắt đầu nấu</button>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script src="utils.js"></script>
+  <script src="index.js"></script>
+ </body>
+</html>
+
