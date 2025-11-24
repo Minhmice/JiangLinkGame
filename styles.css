@@ -926,3 +926,143 @@
     height: 32px;
   }
 }
+
+/* Submit Button Styles */
+.btn-submit {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4) !important;
+}
+
+.btn-submit:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-submit::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.btn-submit:hover:not(:disabled)::before {
+  left: 100%;
+}
+
+/* Loading Spinner Animation */
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.submit-btn-loading {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Pulse animation for loading state */
+.btn-submit:disabled {
+  animation: submit-pulse 2s ease-in-out infinite;
+}
+
+@keyframes submit-pulse {
+  0%, 100% {
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.6), 0 0 0 4px rgba(37, 99, 235, 0.1);
+  }
+}
+
+/* Modern loading dots animation */
+.submit-btn-loading::after {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: white;
+  margin-left: 4px;
+  animation: loading-dots 1.4s ease-in-out infinite;
+}
+
+@keyframes loading-dots {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Submit button status styles */
+.submit-btn-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  animation: status-fade-in 0.3s ease-in;
+}
+
+@keyframes status-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.submit-status-success {
+  animation: status-success-pulse 0.5s ease-in-out;
+}
+
+@keyframes status-success-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.submit-status-error {
+  animation: status-error-shake 0.5s ease-in-out;
+}
+
+@keyframes status-error-shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}

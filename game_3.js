@@ -14,6 +14,8 @@
   let stepperElement = null;
   let submissionStatusElement = null;
   let timerDisplayElement = null;
+  let submitBtnElement = null;
+  let isSubmitting = false;
   
   // Debounce timers for auto-save
   const debounceTimers = {};
@@ -318,12 +320,7 @@
       },
       function() {
         isTimeUp = true;
-        showSubmissionStatus('⏰ Hết thời gian! Bây giờ bạn có thể xong bài.', 'info');
-        // Play music when time is up
-        playCompletionMusic();
-        setTimeout(() => {
-          submitExercises();
-        }, 2000);
+        showSubmissionStatus('⏰ Hết thời gian! Bạn có thể nộp bài bất cứ lúc nào.', 'info');
       }
     );
 
@@ -409,9 +406,14 @@
         <div class="mb-4 p-3 rounded-xl border-2 text-center text-lg font-bold animate-timer-pulse" id="timerDisplay" style="background-color: rgba(37, 99, 235, 0.2); border-color: rgba(37, 99, 235, 0.5); color: #2563eb;">⏱️ Thời gian còn lại: ${formatTime((metadataState.duration || 5) * 60)}</div>
         <p class="mb-3 text-base font-semibold text-indigo-600 animate-text-shimmer">🌟 Tiến trình bài tập</p>
         <div class="grid grid-cols-5 lg:grid-cols-2 gap-2.5 mb-5" id="stepper"></div>
-        <div class="mb-5">
-          <div class="hidden p-2.5 rounded-lg text-sm" id="submissionStatus" aria-live="polite"></div>
-        </div>
+        <button id="submitBtn" class="w-full py-3.5 px-6 rounded-xl border-none font-bold text-base cursor-pointer text-white transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed relative overflow-hidden btn-submit" style="background: linear-gradient(135deg, var(--theme-color-1, #2563eb), var(--theme-color-2, #7c3aed)); box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);" onclick="window.submitExercises()">
+          <span class="submit-btn-text">📤 Nộp bài</span>
+          <span class="submit-btn-loading hidden">
+            <span class="loading-spinner"></span>
+            <span class="ml-2">Đang gửi...</span>
+          </span>
+          <span class="submit-btn-status hidden"></span>
+        </button>
         <div class="hidden mt-5 p-5 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl text-white" id="totalScore">
           <h3 class="mb-3 text-lg font-bold">🏆 Kết quả của bạn</h3>
           <div class="text-3xl tracking-wider mb-3" id="totalStars"></div>
@@ -424,6 +426,12 @@
     stepperElement = section.querySelector('#stepper');
     submissionStatusElement = section.querySelector('#submissionStatus');
     timerDisplayElement = section.querySelector('#timerDisplay');
+    submitBtnElement = section.querySelector('#submitBtn');
+    
+    // Hide submissionStatus div since we're using button status now
+    if (submissionStatusElement) {
+      submissionStatusElement.style.display = 'none';
+    }
 
     const container = section.querySelector('#exerciseContainer');
     exerciseData.forEach(exercise => {
@@ -643,7 +651,22 @@
   }
 
   function updateSubmitButtonState() {
-    // No longer needed
+    if (!submitBtnElement) return;
+    
+    // Always enable button - can submit anytime
+    submitBtnElement.disabled = false;
+    submitBtnElement.style.opacity = '1';
+    submitBtnElement.style.cursor = 'pointer';
+    
+    // Update button colors based on theme
+    if (window.ThemeManager) {
+      const savedTheme = localStorage.getItem('gameTheme') || 'default';
+      const themeColors = window.ThemeManager.getThemeColors(savedTheme);
+      if (themeColors && themeColors.length >= 2) {
+        submitBtnElement.style.background = `linear-gradient(135deg, ${themeColors[0]}, ${themeColors[1]})`;
+        submitBtnElement.style.boxShadow = `0 4px 12px ${themeColors[0]}4D`;
+      }
+    }
   }
 
   function showSubmissionStatus(message, variant) {
@@ -692,9 +715,6 @@
       totalScoreDiv.classList.add('block', 'animate-score-reveal');
       totalScoreDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
-    
-    // Play completion music
-    playCompletionMusic();
   }
 
   function playCompletionMusic() {
@@ -923,17 +943,19 @@
   };
 
   window.submitExercises = async function() {
+    if (isSubmitting) {
+      return; // Prevent multiple submissions
+    }
+
     if (!metadataState) {
-      showSubmissionStatus('⚠️ Không tìm thấy thông tin học viên. Vui lòng quay lại trang thiết lập.', 'error');
+      setSubmitButtonStatus('⚠️ Không tìm thấy thông tin học viên. Vui lòng quay lại trang thiết lập.', 'error');
       return;
     }
 
-    if (!isTimeUp) {
-      showSubmissionStatus('⏰ Chưa hết thời gian! Vui lòng đợi hết thời gian để xong bài.', 'error');
-      return;
-    }
+    // Set loading state
+    isSubmitting = true;
+    setSubmitButtonLoading(true);
 
-    showSubmissionStatus('⏳ Đang gửi dữ liệu lên Google Sheet...', 'info');
     revealAllAnswers();
     showTotalScore(completedSteps.size);
     disableAllInputs();
@@ -949,14 +971,101 @@
 
     try {
       await postToGoogleSheet(payload);
-      showSubmissionStatus('✅ Đã gửi kết quả lên Google Sheet thành công!', 'success');
+      setSubmitButtonStatus('✅ Đã gửi kết quả lên Google Sheet thành công!', 'success');
       // Clear all progress from localStorage after successful submit
       clearAllProgress();
-      // Music will continue playing until user leaves the page
+      isSubmitting = false;
+      // Play music when submission is successful
+      playCompletionMusic();
     } catch (error) {
-      showSubmissionStatus(`❌ Gửi dữ liệu thất bại: ${error.message}`, 'error');
+      setSubmitButtonStatus(`❌ Gửi dữ liệu thất bại: ${error.message}`, 'error');
+      setSubmitButtonLoading(false);
+      isSubmitting = false;
     }
   };
+
+  function setSubmitButtonLoading(loading) {
+    if (!submitBtnElement) return;
+    
+    const textSpan = submitBtnElement.querySelector('.submit-btn-text');
+    const loadingSpan = submitBtnElement.querySelector('.submit-btn-loading');
+    const statusSpan = submitBtnElement.querySelector('.submit-btn-status');
+    
+    if (loading) {
+      submitBtnElement.disabled = true;
+      if (textSpan) textSpan.classList.add('hidden');
+      if (loadingSpan) loadingSpan.classList.remove('hidden');
+      if (statusSpan) statusSpan.classList.add('hidden');
+    } else {
+      submitBtnElement.disabled = false;
+      if (textSpan) textSpan.classList.remove('hidden');
+      if (loadingSpan) loadingSpan.classList.add('hidden');
+      if (statusSpan) statusSpan.classList.add('hidden');
+    }
+  }
+
+  function setSubmitButtonStatus(message, variant) {
+    if (!submitBtnElement) return;
+    
+    const textSpan = submitBtnElement.querySelector('.submit-btn-text');
+    const loadingSpan = submitBtnElement.querySelector('.submit-btn-loading');
+    const statusSpan = submitBtnElement.querySelector('.submit-btn-status');
+    
+    if (!statusSpan) return;
+    
+    // Hide other states
+    if (textSpan) textSpan.classList.add('hidden');
+    if (loadingSpan) loadingSpan.classList.add('hidden');
+    
+    // Show status
+    statusSpan.textContent = message;
+    statusSpan.classList.remove('hidden', 'submit-status-success', 'submit-status-error', 'submit-status-info');
+    
+    // Apply variant class
+    if (variant === 'success') {
+      statusSpan.classList.add('submit-status-success');
+      submitBtnElement.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+      submitBtnElement.style.boxShadow = '0 4px 12px rgba(16, 185, 129, 0.3)';
+      submitBtnElement.disabled = true;
+    } else if (variant === 'error') {
+      statusSpan.classList.add('submit-status-error');
+      submitBtnElement.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+      submitBtnElement.style.boxShadow = '0 4px 12px rgba(239, 68, 68, 0.3)';
+      submitBtnElement.disabled = false;
+      // Reset to normal state after 3 seconds
+      setTimeout(() => {
+        resetSubmitButton();
+      }, 3000);
+    } else {
+      statusSpan.classList.add('submit-status-info');
+    }
+  }
+
+  function resetSubmitButton() {
+    if (!submitBtnElement) return;
+    
+    const textSpan = submitBtnElement.querySelector('.submit-btn-text');
+    const loadingSpan = submitBtnElement.querySelector('.submit-btn-loading');
+    const statusSpan = submitBtnElement.querySelector('.submit-btn-status');
+    
+    // Show text, hide others
+    if (textSpan) textSpan.classList.remove('hidden');
+    if (loadingSpan) loadingSpan.classList.add('hidden');
+    if (statusSpan) statusSpan.classList.add('hidden');
+    
+    // Reset button state
+    submitBtnElement.disabled = false;
+    
+    // Restore theme colors
+    if (window.ThemeManager) {
+      const savedTheme = localStorage.getItem('gameTheme') || 'default';
+      const themeColors = window.ThemeManager.getThemeColors(savedTheme);
+      if (themeColors && themeColors.length >= 2) {
+        submitBtnElement.style.background = `linear-gradient(135deg, ${themeColors[0]}, ${themeColors[1]})`;
+        submitBtnElement.style.boxShadow = `0 4px 12px ${themeColors[0]}4D`;
+      }
+    }
+  }
 
   async function postToGoogleSheet(data) {
     const webAppUrl = GOOGLE_SHEET_WEB_APP_URL;

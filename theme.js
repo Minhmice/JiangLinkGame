@@ -146,6 +146,13 @@
         }
       }
     });
+    
+    // Update submit button
+    const submitBtn = document.getElementById('submitBtn');
+    if (submitBtn) {
+      submitBtn.style.background = `linear-gradient(135deg, ${themeColors[0]}, ${themeColors[1]})`;
+      submitBtn.style.boxShadow = `0 4px 12px ${themeColors[0]}4D`;
+    }
   }
 
   function getThemeColors(themeName) {
