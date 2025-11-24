@@ -319,6 +319,8 @@
       function() {
         isTimeUp = true;
         showSubmissionStatus('⏰ Hết thời gian! Bây giờ bạn có thể xong bài.', 'info');
+        // Play music when time is up
+        playCompletionMusic();
         setTimeout(() => {
           submitExercises();
         }, 2000);
@@ -401,9 +403,9 @@
 
   function createExercisePage() {
     const section = document.createElement('section');
-    section.className = 'flex flex-col lg:flex-row gap-6 items-start';
+    section.className = 'flex flex-col lg:flex-row gap-6 items-start w-full';
     section.innerHTML = `
-      <div class="w-full lg:w-[350px] flex-shrink-0 bg-white/95 rounded-2xl p-6 shadow-xl animate-panel-slide">
+      <div class="w-full lg:w-[350px] xl:w-[380px] flex-shrink-0 bg-white/95 rounded-2xl p-6 shadow-xl animate-panel-slide">
         <div class="mb-4 p-3 rounded-xl border-2 text-center text-lg font-bold animate-timer-pulse" id="timerDisplay" style="background-color: rgba(37, 99, 235, 0.2); border-color: rgba(37, 99, 235, 0.5); color: #2563eb;">⏱️ Thời gian còn lại: ${formatTime((metadataState.duration || 5) * 60)}</div>
         <p class="mb-3 text-base font-semibold text-indigo-600 animate-text-shimmer">🌟 Tiến trình bài tập</p>
         <div class="grid grid-cols-5 lg:grid-cols-2 gap-2.5 mb-5" id="stepper"></div>
@@ -416,7 +418,7 @@
           <p id="scoreMessage" class="mt-3 text-base"></p>
         </div>
       </div>
-      <div class="flex-1 max-w-5xl mx-auto w-full" id="exerciseContainer"></div>
+      <div class="w-full" id="exerciseContainer"></div>
     `;
 
     stepperElement = section.querySelector('#stepper');
@@ -690,6 +692,29 @@
       totalScoreDiv.classList.add('block', 'animate-score-reveal');
       totalScoreDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
+    
+    // Play completion music
+    playCompletionMusic();
+  }
+
+  function playCompletionMusic() {
+    const audio = document.getElementById('completionMusic');
+    if (audio) {
+      audio.volume = 0.5; // Set volume to 50%
+      audio.loop = true; // Loop the music
+      audio.play().catch(error => {
+        console.log('Auto-play prevented. User interaction required:', error);
+        // Music will play when user interacts with the page
+      });
+    }
+  }
+
+  function stopCompletionMusic() {
+    const audio = document.getElementById('completionMusic');
+    if (audio) {
+      audio.pause();
+      audio.currentTime = 0;
+    }
   }
 
   function revealAllAnswers() {
@@ -705,10 +730,10 @@
   }
 
   function disableAllInputs() {
-    document.querySelectorAll('.btn-run, .btn-clear').forEach(btn => {
+    document.querySelectorAll('.btn-run-code, .btn-clear').forEach(btn => {
       btn.disabled = true;
     });
-    document.querySelectorAll('.code-editor textarea').forEach(textarea => {
+    document.querySelectorAll('.code-editor textarea, textarea[id^="code"]').forEach(textarea => {
       textarea.disabled = true;
     });
     if (timer) {
@@ -927,6 +952,7 @@
       showSubmissionStatus('✅ Đã gửi kết quả lên Google Sheet thành công!', 'success');
       // Clear all progress from localStorage after successful submit
       clearAllProgress();
+      // Music will continue playing until user leaves the page
     } catch (error) {
       showSubmissionStatus(`❌ Gửi dữ liệu thất bại: ${error.message}`, 'error');
     }
