@@ -963,10 +963,26 @@
     const elapsedSeconds = calculateElapsedTime();
     const elapsedMinutes = Math.floor(elapsedSeconds / 60);
 
+    // Calculate wrong answers
+    const totalExercises = exerciseData.length;
+    const correctCount = completedSteps.size;
+    const wrongCount = totalExercises - correctCount;
+    
+    // Get list of wrong question numbers
+    const wrongQuestions = [];
+    for (let i = 1; i <= totalExercises; i++) {
+      if (!completedSteps.has(i)) {
+        wrongQuestions.push(i);
+      }
+    }
+    const wrongQuestionsStr = wrongQuestions.length > 0 ? wrongQuestions.join(', ') : 'Không có';
+
     const payload = {
       group: String(metadataState.group),
-      score: completedSteps.size,
-      duration: elapsedMinutes
+      score: correctCount,
+      duration: elapsedMinutes,
+      wrongCount: wrongCount,
+      wrongQuestions: wrongQuestionsStr
     };
 
     try {

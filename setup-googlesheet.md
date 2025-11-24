@@ -33,8 +33,9 @@
 
 1. Mở Google Sheet: https://docs.google.com/spreadsheets/d/1jMUyLFaYPgv9h8RpaI4C_XA12SRYMMQgMG1QIADOFtw/edit
 2. Đảm bảo cấu trúc sheet như sau:
-   - Row 1: Header (Đội | Điểm | Thời gian)
-   - Row 2-13: Dữ liệu cho các đội 1-12
+   - Row 1: Header (Đội | Điểm | Thời gian | Số câu sai | Câu sai)
+   - Row 2-13: Dữ liệu cho các đội 1.1, 1.2, 2.1, 2.2, ..., 6.2
+   - **Lưu ý**: Nếu sheet chưa có cột "Số câu sai" và "Câu sai", hãy thêm 2 cột này vào Row 1
 
 ## Lưu ý
 

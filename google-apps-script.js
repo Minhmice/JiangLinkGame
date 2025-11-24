@@ -18,32 +18,44 @@ function doPost(e) {
     const group = String(data.group || '1.1');
     const score = Number(data.score || 0);
     const duration = Number(data.duration || 0);
+    const wrongCount = Number(data.wrongCount || 0);
+    const wrongQuestions = String(data.wrongQuestions || 'Không có');
     
-    // Find row for this team (row 1 is header, teams start at row 2)
-    // Format: "1.1", "1.2", "2.1", "2.2", ... "6.2"
-    // Mapping: 1.1 -> row 2, 1.2 -> row 3, 2.1 -> row 4, 2.2 -> row 5, etc.
+    // Calculate row based on team format (fixed rows)
+    // Row 1 = Header, Row 2 = 1.1, Row 3 = 1.2, Row 4 = 2.1, ..., Row 13 = 6.2
     let row = 2; // Default to row 2
     if (group.includes('.')) {
       const parts = group.split('.');
       const major = parseInt(parts[0]) || 1;
       const minor = parseInt(parts[1]) || 1;
+      // Formula: row = (major - 1) * 2 + minor + 1
+      // Examples: 1.1 -> row 2, 1.2 -> row 3, 2.1 -> row 4, 2.2 -> row 5, 6.2 -> row 13
       row = (major - 1) * 2 + minor + 1;
     } else {
       // Fallback for old format (if any)
       row = parseInt(group) + 1;
     }
     
-    // Update the row: Column A = Đội, Column B = Điểm, Column C = Thời gian
+    // Ensure row is within valid range (2-13)
+    if (row < 2) row = 2;
+    if (row > 13) row = 13;
+    
+    // Update the row: 
+    // Column A = Đội, Column B = Điểm, Column C = Thời gian, Column D = Số câu sai, Column E = Câu sai
     sheet.getRange(row, 1).setValue(group);
     sheet.getRange(row, 2).setValue(score);
     sheet.getRange(row, 3).setValue(duration);
+    sheet.getRange(row, 4).setValue(wrongCount);
+    sheet.getRange(row, 5).setValue(wrongQuestions);
     
     return ContentService.createTextOutput(JSON.stringify({
       success: true,
       message: 'Data saved successfully',
       group: group,
       score: score,
-      duration: duration
+      duration: duration,
+      wrongCount: wrongCount,
+      wrongQuestions: wrongQuestions
     })).setMimeType(ContentService.MimeType.JSON);
     
   } catch (error) {
