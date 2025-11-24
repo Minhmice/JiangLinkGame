@@ -24,7 +24,7 @@
       defaultTitle: 'Input Type Text',
       requirementHeading: sharedRequirementHeading,
       requirementDemo: `<label for="hoten">Họ tên:</label> <input id="hoten" type="text" name="ho_ten">`,
-      syntax: `<span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"id_input_tương_ứng"</span><span class="tag">&gt;</span>Tên nhãn<span class="tag">&lt;/label&gt;</span><br><span class="tag">&lt;input</span> <span class="attr">id</span>=<span class="value">"id_input"</span> <span class="attr">type</span>=<span class="value">"text"</span> <span class="attr">name</span>=<span class="value">"tên_input"</span><span class="tag">&gt;</span>`,
+      syntax: `<span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"id_input"</span><span class="tag">&gt;</span>Tên nhãn<span class="tag">&lt;/label&gt;</span><br><span class="tag">&lt;input</span> <span class="attr">id</span>=<span class="value">"id_input"</span> <span class="attr">type</span>=<span class="value">"loại_input"</span> <span class="attr">name</span>=<span class="value">"tên_input"</span><span class="tag">&gt;</span>`,
       answer: `<label for="hoten">Họ tên:</label>
 <input id="hoten" type="text" name="ho_ten">`
     },
@@ -32,102 +32,97 @@
       id: 2,
       defaultTitle: 'Input Type Password',
       requirementHeading: sharedRequirementHeading,
-      requirementDemo: `<label for="mk">Mật Khẩu:</label> <input type="password" id="mk" value="88888888">`,
-      syntax: `<span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"id_input_tương_ứng"</span><span class="tag">&gt;</span>Tên nhãn<span class="tag">&lt;/label&gt;</span><br><span class="tag">&lt;input</span> <span class="attr">id</span>=<span class="value">"id_input"</span> <span class="attr">type</span>=<span class="value">"password"</span> <span class="attr">name</span>=<span class="value">"tên_input"</span> <span class="attr">value</span>=<span class="value">"giá_trị_input"</span><span class="tag">&gt;</span>`,
+      requirementDemo: `<label for="mk">Mật Khẩu:</label> <input id="mk" type="password" name="mat_khau" value="88888888">`,
+      syntax: `<span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"id_input"</span><span class="tag">&gt;</span>Tên nhãn<span class="tag">&lt;/label&gt;</span><br><span class="tag">&lt;input</span> <span class="attr">id</span>=<span class="value">"id_input"</span> <span class="attr">type</span>=<span class="value">"loại_input"</span> <span class="attr">name</span>=<span class="value">"tên_input"</span> <span class="attr">value</span>=<span class="value">"giá_trị_input"</span><span class="tag">&gt;</span>`,
       answer: `<label for="mk">Mật Khẩu:</label>
-<input type="password" id="mk" value="88888888">`
+<input id="mk" type="password" name="mat_khau" value="88888888">`
     },
     {
       id: 3,
-      defaultTitle: 'Radio Buttons - Chọn size',
+      defaultTitle: 'Radio Buttons - Giới tính',
       requirementHeading: sharedRequirementHeading,
-      requirementDemo: `<label>Chọn size:</label><br><input type="radio" name="size" value="S" id="sizeS"> <label for="sizeS">S</label> <input type="radio" name="size" value="M" id="sizeM" checked> <label for="sizeM">M</label> <input type="radio" name="size" value="L" id="sizeL"> <label for="sizeL">L</label>`,
-      syntax: `<span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"id_input_tương_ứng"</span><span class="tag">&gt;</span>Tên nhãn<span class="tag">&lt;/label&gt;</span><br><span class="tag">&lt;input</span> <span class="attr">id</span>=<span class="value">"id_input"</span> <span class="attr">type</span>=<span class="value">"radio"</span> <span class="attr">name</span>=<span class="value">"tên_input"</span> <span class="attr">value</span>=<span class="value">"giá_trị_input"</span><span class="tag">&gt;</span>`,
-      answer: `<label>Chọn size:</label><br>
-<input type="radio" name="size" value="S" id="sizeS">
-<label for="sizeS">S</label>
-<input type="radio" name="size" value="M" id="sizeM" checked>
-<label for="sizeM">M</label>
-<input type="radio" name="size" value="L" id="sizeL">
-<label for="sizeL">L</label>`
+      requirementDemo: `<label>Giới tính:</label> <input id="gt_Nam" type="radio" name="gioi_tinh" value="nam" > <label for="gt_Nam">Nam</label> <input id="gt_Nu" type="radio" name="gioi_tinh" value="nu" > <label for="gt_Nu">Nữ</label>`,
+      syntax: `<span class="tag">&lt;label&gt;</span>Tên nhãn<span class="tag">&lt;/label&gt;</span><br><span class="tag">&lt;input</span> <span class="attr">id</span>=<span class="value">"id_input"</span> <span class="attr">type</span>=<span class="value">"loại_input"</span> <span class="attr">name</span>=<span class="value">"tên_input"</span> <span class="attr">value</span>=<span class="value">"giá_trị_input"</span> <span class="tag">&gt;</span><br><span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"id_input"</span><span class="tag">&gt;</span>Tên nhãn<span class="tag">&lt;/label&gt;</span><br><span class="tag">&lt;input</span> <span class="attr">id</span>=<span class="value">"id_input"</span> <span class="attr">type</span>=<span class="value">"loại_input"</span> <span class="attr">name</span>=<span class="value">"tên_input"</span> <span class="attr">value</span>=<span class="value">"giá_trị_input"</span> <span class="tag">&gt;</span><br><span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"id_input"</span><span class="tag">&gt;</span>Tên nhãn<span class="tag">&lt;/label&gt;</span>`,
+      answer: `<label>Giới tính:</label>
+<input id="gt_Nam" type="radio" name="gioi_tinh" value="nam" >
+<label for="gt_Nam">Nam</label>
+<input id="gt_Nu" type="radio" name="gioi_tinh" value="nu" >
+<label for="gt_Nu">Nữ</label>`
     },
     {
       id: 4,
-      defaultTitle: 'Checkbox - Chọn sở thích',
+      defaultTitle: 'Checkbox - Sở thích',
       requirementHeading: sharedRequirementHeading,
-      requirementDemo: `<label>Sở thích:</label><br><input type="checkbox" name="hobby" value="music" id="hb1" checked> <label for="hb1">Âm nhạc</label> <input type="checkbox" name="hobby" value="sport" id="hb2"> <label for="hb2">Thể thao</label> <input type="checkbox" name="hobby" value="reading" id="hb3"> <label for="hb3">Đọc sách</label>`,
-      syntax: `<span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"id_input_tương_ứng"</span><span class="tag">&gt;</span>Tên nhãn<span class="tag">&lt;/label&gt;</span><br><span class="tag">&lt;input</span> <span class="attr">id</span>=<span class="value">"id_input"</span> <span class="attr">type</span>=<span class="value">"checkbox"</span> <span class="attr">name</span>=<span class="value">"tên_input"</span> <span class="attr">value</span>=<span class="value">"giá_trị_input"</span><span class="tag">&gt;</span>`,
+      requirementDemo: `<label>Sở thích:</label><br> <input id="st1" type="checkbox" name="so_thich1" value="nhac"> <label for="st1">Âm nhạc</label> <input id="st2" type="checkbox" name="sơ_thich2" value="thethao"> <label for="st2">Thể thao</label> <input id="st3" type="checkbox" name="so_thich3" value="docsach"> <label for="st3">Đọc sách</label>`,
+      syntax: `<span class="tag">&lt;label&gt;</span>Tên nhãn<span class="tag">&lt;/label&gt;</span><span class="tag">&lt;br&gt;</span><br><span class="tag">&lt;input</span> <span class="attr">id</span>=<span class="value">"id_input"</span> <span class="attr">type</span>=<span class="value">"loại_input"</span> <span class="attr">name</span>=<span class="value">"tên_input"</span> <span class="attr">value</span>=<span class="value">"giá_trị_input"</span><span class="tag">&gt;</span><br><span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"id_input"</span><span class="tag">&gt;</span>Tên nhãn<span class="tag">&lt;/label&gt;</span><br><span class="tag">&lt;input</span> <span class="attr">id</span>=<span class="value">"id_input"</span> <span class="attr">type</span>=<span class="value">"loại_input"</span> <span class="attr">name</span>=<span class="value">"tên_input"</span> <span class="attr">value</span>=<span class="value">"giá_trị_input"</span><span class="tag">&gt;</span><br><span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"id_input"</span><span class="tag">&gt;</span>Tên nhãn<span class="tag">&lt;/label&gt;</span><br><span class="tag">&lt;input</span> <span class="attr">id</span>=<span class="value">"id_input"</span> <span class="attr">type</span>=<span class="value">"loại_input"</span> <span class="attr">name</span>=<span class="value">"tên_input"</span> <span class="attr">value</span>=<span class="value">"giá_trị_input"</span><span class="tag">&gt;</span><br><span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"id_input"</span><span class="tag">&gt;</span>Tên nhãn<span class="tag">&lt;/label&gt;</span>`,
       answer: `<label>Sở thích:</label><br>
-<input type="checkbox" name="hobby" value="music" id="hb1" checked>
-<label for="hb1">Âm nhạc</label>
-<input type="checkbox" name="hobby" value="sport" id="hb2">
-<label for="hb2">Thể thao</label>
-<input type="checkbox" name="hobby" value="reading" id="hb3">
-<label for="hb3">Đọc sách</label>`
+<input id="st1" type="checkbox" name="so_thich1" value="nhac">
+<label for="st1">Âm nhạc</label>
+<input id="st2" type="checkbox" name="sơ_thich2" value="thethao">
+<label for="st2">Thể thao</label>
+<input id="st3" type="checkbox" name="so_thich3" value="docsach">
+<label for="st3">Đọc sách</label>`
     },
     {
       id: 5,
-      defaultTitle: 'Select & Option - Chọn thành phố',
+      defaultTitle: 'Select & Option - Thành phố',
       requirementHeading: sharedRequirementHeading,
-      requirementDemo: `<label for="city">Thành phố:</label> <select id="city" name="thanh_pho"> <option value="">-- Chọn --</option> <option value="hn">Hà Nội</option> <option value="hcm" selected>TP.HCM</option> <option value="dn">Đà Nẵng</option> </select>`,
-      syntax: `<span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"id_select"</span><span class="tag">&gt;</span>Nhãn:<span class="tag">&lt;/label&gt;</span><br><span class="tag">&lt;select</span> <span class="attr">id</span>=<span class="value">"id_select"</span> <span class="attr">name</span>=<span class="value">"tên_select"</span><span class="tag">&gt;</span><br>
-        &nbsp;&nbsp;<span class="tag">&lt;option</span> <span class="attr">value</span>=<span class="value">"giá_trị"</span> <span class="attr">selected</span><span class="tag">&gt;</span>Text hiển thị<span class="tag">&lt;/option&gt;</span><br><span class="tag">&lt;/select&gt;</span>`,
-      answer: `<label for="city">Thành phố:</label>
-<select id="city" name="thanh_pho">
-  <option value="">-- Chọn --</option>
-  <option value="hn">Hà Nội</option>
-  <option value="hcm" selected>TP.HCM</option>
-  <option value="dn">Đà Nẵng</option>
+      requirementDemo: `<label for="tp">Thành phố:</label> <select id="tp" name="thanh_pho"> <option value="">-- Chọn --</option> <option value="hn">Hà Nội</option> <option value="hcm">TP.HCM</option> <option value="dn">Đà Nẵng</option> </select>`,
+      syntax: `<span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"id_input"</span><span class="tag">&gt;</span>Tên nhãn<span class="tag">&lt;/label&gt;</span><br><span class="tag">&lt;select</span> <span class="attr">id</span>=<span class="value">"id_input"</span> <span class="attr">name</span>=<span class="value">"tên_input"</span><span class="tag">&gt;</span><br><span class="tag">&lt;option</span> <span class="attr">value</span>=<span class="value">"giá_trị_input"</span><span class="tag">&gt;</span>Tên lựa chọn<span class="tag">&lt;/option&gt;</span><br><span class="tag">&lt;option</span> <span class="attr">value</span>=<span class="value">"giá_trị_input"</span><span class="tag">&gt;</span>Tên lựa chọn<span class="tag">&lt;/option&gt;</span><br><span class="tag">&lt;option</span> <span class="attr">value</span>=<span class="value">"giá_trị_input"</span><span class="tag">&gt;</span>Tên lựa chọn<span class="tag">&lt;/option&gt;</span><br><span class="tag">&lt;option</span> <span class="attr">value</span>=<span class="value">"giá_trị_input"</span><span class="tag">&gt;</span>Tên lựa chọn<span class="tag">&lt;/option&gt;</span><br><span class="tag">&lt;/select&gt;</span>`,
+      answer: `<label for="tp">Thành phố:</label>
+<select id="tp" name="thanh_pho">
+<option value="">-- Chọn --</option>
+<option value="hn">Hà Nội</option>
+<option value="hcm">TP.HCM</option>
+<option value="dn">Đà Nẵng</option>
 </select>`
     },
     {
       id: 6,
-      defaultTitle: 'Textarea - Nhập nội dung dài',
+      defaultTitle: 'Textarea - Lời nhắn',
       requirementHeading: sharedRequirementHeading,
-      requirementDemo: `<label for="message">Lời nhắn:</label><br><textarea id="message" name="loi_nhan" rows="4" cols="30" placeholder="Nhập lời nhắn..."></textarea>`,
-      syntax: `<span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"id_textarea"</span><span class="tag">&gt;</span>Nhãn:<span class="tag">&lt;/label&gt;</span><br><span class="tag">&lt;textarea</span> <span class="attr">id</span>=<span class="value">"id_textarea"</span> <span class="attr">name</span>=<span class="value">"tên_textarea"</span> <span class="attr">rows</span>=<span class="value">"4"</span> <span class="attr">cols</span>=<span class="value">"30"</span><span class="tag">&gt;&lt;/textarea&gt;</span>`,
-      answer: `<label for="message">Lời nhắn:</label><br>
-<textarea id="message" name="loi_nhan" rows="4" cols="30" placeholder="Nhập lời nhắn..."></textarea>`
+      requirementDemo: `<label for="tn">Lời nhắn:</label><br> <textarea id="tn" name="loi_nhan" rows="4" cols="30"></textarea>`,
+      syntax: `<span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"id_input"</span><span class="tag">&gt;</span>Tên nhãn<span class="tag">&lt;/label&gt;</span><span class="tag">&lt;br&gt;</span><br><span class="tag">&lt;textarea</span> <span class="attr">id</span>=<span class="value">"id_input"</span> <span class="attr">name</span>=<span class="value">"tên_vùng_text"</span> <span class="attr">rows</span>=<span class="value">"giá_trị_hàng"</span> <span class="attr">cols</span>=<span class="value">"giá_trik_cột"</span><span class="tag">&gt;&lt;/textarea&gt;</span>`,
+      answer: `<label for="tn">Lời nhắn:</label><br>
+<textarea id="tn" name="loi_nhan" rows="4" cols="30"></textarea>`
     },
     {
       id: 7,
       defaultTitle: 'Button - Nút bấm',
       requirementHeading: sharedRequirementHeading,
-      requirementDemo: `<button type="button">Nhấn vào đây</button>`,
-      syntax: `<span class="tag">&lt;input</span> <span class="attr">id</span>=<span class="value">"id_input"</span> <span class="attr">type</span>=<span class="value">"button"</span> <span class="attr">value</span>=<span class="value">"giá_trị_input"</span><span class="tag">&gt;</span>`,
-      answer: `<button type="button">Nhấn vào đây</button>`
+      requirementDemo: `<input id="bt" type="button" name="bt1" value="Nhấn vào đây">`,
+      syntax: `<span class="tag">&lt;input</span> <span class="attr">id</span>=<span class="value">"id_input"</span> <span class="attr">type</span>=<span class="value">"loại_input"</span> <span class="attr">name</span>=<span class="value">"tên_input"</span> <span class="attr">value</span>=<span class="value">"giá_trị_input"</span><span class="tag">&gt;</span>`,
+      answer: `<input id="bt" type="button" name="bt1" value="Nhấn vào đây">`
     },
     {
       id: 8,
       defaultTitle: 'Submit - Nút gửi form',
       requirementHeading: sharedRequirementHeading,
-      requirementDemo: `<button type="submit">Gửi đi</button>`,
-      syntax: `<span class="tag">&lt;input</span> <span class="attr">id</span>=<span class="value">"id_input"</span> <span class="attr">type</span>=<span class="value">"submit"</span> <span class="attr">value</span>=<span class="value">"giá_trị_input"</span><span class="tag">&gt;</span>`,
-      answer: `<button type="submit">Gửi đi</button>`
+      requirementDemo: `<input id="sb" type="submit" name="sb1" value="Gửi đi">`,
+      syntax: `<span class="tag">&lt;input</span> <span class="attr">id</span>=<span class="value">"id_input"</span> <span class="attr">type</span>=<span class="value">"loại_input"</span> <span class="attr">name</span>=<span class="value">"tên_input"</span> <span class="attr">value</span>=<span class="value">"giá_trị_input"</span><span class="tag">&gt;</span>`,
+      answer: `<input id="sb" type="submit" name="sb1" value="Gửi đi">`
     },
     {
       id: 9,
-      defaultTitle: 'Input Type File - Chọn file',
+      defaultTitle: 'Input Type File - Chọn ảnh đại diện',
       requirementHeading: sharedRequirementHeading,
-      requirementDemo: `<label for="avatar">Chọn ảnh đại diện:</label><br><input type="file" id="avatar" name="anh_dai_dien" accept="image/*">`,
-      syntax: `<span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"id_input"</span><span class="tag">&gt;</span>Nhãn:<span class="tag">&lt;/label&gt;</span><br><span class="tag">&lt;input</span> <span class="attr">id</span>=<span class="value">"id_input"</span> <span class="attr">type</span>=<span class="value">"file"</span><span class="tag">&gt;</span>`,
+      requirementDemo: `<label for="avatar">Chọn ảnh đại diện:</label><br> <input id="avatar" type="file" name="anh_dai_dien">`,
+      syntax: `<span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"id_input"</span><span class="tag">&gt;</span>Tên nhãn<span class="tag">&lt;/label&gt;</span><span class="tag">&lt;br&gt;</span><br><span class="tag">&lt;input</span> <span class="attr">id</span>=<span class="value">"id_input"</span> <span class="attr">type</span>=<span class="value">"loại_input"</span> <span class="attr">name</span>=<span class="value">"tên_input"</span><span class="tag">&gt;</span>`,
       answer: `<label for="avatar">Chọn ảnh đại diện:</label><br>
-<input type="file" id="avatar" name="anh_dai_dien" accept="image/*">`
+<input id="avatar" type="file" name="anh_dai_dien">`
     },
     {
       id: 10,
-      defaultTitle: 'Fieldset - Nhóm thông tin',
+      defaultTitle: 'Fieldset - Thông tin cá nhân',
       requirementHeading: sharedRequirementHeading,
-      requirementDemo: `<fieldset><legend>Thông tin cá nhân</legend> <label for="fullname">Họ tên:</label> <input type="text" id="fullname" name="ho_ten"><br><br><label for="email">Email:</label> <input type="text" id="email" name="email"></fieldset>`,
-      syntax: `<span class="tag">&lt;fieldset&gt;</span><br>
-        &nbsp;&nbsp;<span class="tag">&lt;legend&gt;</span>Tiêu đề nhóm<span class="tag">&lt;/legend&gt;</span><br>
-        &nbsp;&nbsp;<span class="comment">...Các input trong nhóm...</span><br><span class="tag">&lt;/fieldset&gt;</span>`,
+      requirementDemo: `<fieldset> <legend>Thông tin cá nhân</legend> <label for="hoten">Họ tên:</label> <input id="hoten" type="text"><br><br> <label for="email">Email:</label> <input id="email" type="text"> </fieldset>`,
+      syntax: `<span class="tag">&lt;fieldset&gt;</span><br><span class="tag">&lt;legend&gt;</span>Tên vùng<span class="tag">&lt;/legend&gt;</span><br><span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"id_input"</span><span class="tag">&gt;</span>Tên nhãn<span class="tag">&lt;/label&gt;</span><br><span class="tag">&lt;input</span> <span class="attr">id</span>=<span class="value">"id_input"</span> <span class="attr">type</span>=<span class="value">"loại_input"</span><span class="tag">&gt;</span><span class="tag">&lt;br&gt;&lt;br&gt;</span><br><span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"id_input"</span><span class="tag">&gt;</span>Tên nhãn<span class="tag">&lt;/label&gt;</span><br><span class="tag">&lt;input</span> <span class="attr">id</span>=<span class="value">"id_input"</span> <span class="attr">type</span>=<span class="value">"loại_input"</span><span class="tag">&gt;</span><br><span class="tag">&lt;/fieldset&gt;</span>`,
       answer: `<fieldset>
-  <legend>Thông tin cá nhân</legend>
-  <label for="fullname">Họ tên:</label>
-  <input type="text" id="fullname" name="ho_ten"><br><br>
-  <label for="email">Email:</label>
-  <input type="text" id="email" name="email">
+<legend>Thông tin cá nhân</legend>
+<label for="hoten">Họ tên:</label>
+<input id="hoten" type="text"><br><br>
+<label for="email">Email:</label>
+<input id="email" type="text">
 </fieldset>`
     }
   ];
@@ -297,10 +292,24 @@
     timer = new window.Timer(
       durationMinutes,
       function(timeString, isWarning) {
-        if (timerDisplayElement) {
-          timerDisplayElement.textContent = `⏱️ Thời gian còn lại: ${timeString}`;
-          timerDisplayElement.classList.toggle('warning', isWarning);
+      if (timerDisplayElement) {
+        timerDisplayElement.textContent = `⏱️ Thời gian còn lại: ${timeString}`;
+        if (isWarning) {
+          timerDisplayElement.classList.remove('animate-timer-pulse');
+          timerDisplayElement.classList.add('bg-red-100/50', 'border-red-300/50', 'text-red-700', 'animate-timer-warning');
+        } else {
+          timerDisplayElement.classList.remove('bg-red-100/50', 'border-red-300/50', 'text-red-700', 'animate-timer-warning');
+          timerDisplayElement.classList.add('animate-timer-pulse');
+          // Update colors based on theme
+          if (window.ThemeManager) {
+            const savedTheme = localStorage.getItem('gameTheme') || 'default';
+            const themeColors = window.ThemeManager.getThemeColors(savedTheme);
+            timerDisplayElement.style.backgroundColor = `${themeColors[0]}20`;
+            timerDisplayElement.style.borderColor = `${themeColors[0]}50`;
+            timerDisplayElement.style.color = themeColors[0];
+          }
         }
+      }
         // Save remaining time every second
         if (timer) {
           const remaining = timer.getRemaining();
@@ -323,7 +332,20 @@
       if (timerDisplayElement) {
         const isWarning = savedRemainingTime <= 60;
         timerDisplayElement.textContent = `⏱️ Thời gian còn lại: ${formatTime(savedRemainingTime)}`;
-        timerDisplayElement.classList.toggle('warning', isWarning);
+        if (isWarning) {
+          timerDisplayElement.classList.remove('animate-timer-pulse');
+          timerDisplayElement.classList.add('bg-red-100/50', 'border-red-300/50', 'text-red-700', 'animate-timer-warning');
+        } else {
+          timerDisplayElement.classList.add('animate-timer-pulse');
+          // Update colors based on theme
+          if (window.ThemeManager) {
+            const savedTheme = localStorage.getItem('gameTheme') || 'default';
+            const themeColors = window.ThemeManager.getThemeColors(savedTheme);
+            timerDisplayElement.style.backgroundColor = `${themeColors[0]}20`;
+            timerDisplayElement.style.borderColor = `${themeColors[0]}50`;
+            timerDisplayElement.style.color = themeColors[0];
+          }
+        }
       }
     }
 
@@ -369,26 +391,32 @@
     updateStepVisibility();
     updateSubmitButtonState();
     initTimer();
+    
+    // Update button colors and theme-based elements based on current theme
+    if (window.ThemeManager) {
+      const savedTheme = localStorage.getItem('gameTheme') || 'default';
+      window.ThemeManager.updateButtonColors(savedTheme);
+    }
   }
 
   function createExercisePage() {
     const section = document.createElement('section');
-    section.className = 'exercise-page';
+    section.className = 'flex flex-col lg:flex-row gap-6 items-start';
     section.innerHTML = `
-      <div class="progress-panel">
-        <div class="timer-display" id="timerDisplay">⏱️ Thời gian còn lại: ${formatTime((metadataState.duration || 5) * 60)}</div>
-        <p class="stepper-title">🌟 Tiến trình bài tập</p>
-        <div class="stepper" id="stepper"></div>
-        <div class="progress-actions">
-          <div class="submission-status" id="submissionStatus" aria-live="polite"></div>
+      <div class="w-full lg:w-[350px] flex-shrink-0 bg-white/95 rounded-2xl p-6 shadow-xl animate-panel-slide">
+        <div class="mb-4 p-3 rounded-xl border-2 text-center text-lg font-bold animate-timer-pulse" id="timerDisplay" style="background-color: rgba(37, 99, 235, 0.2); border-color: rgba(37, 99, 235, 0.5); color: #2563eb;">⏱️ Thời gian còn lại: ${formatTime((metadataState.duration || 5) * 60)}</div>
+        <p class="mb-3 text-base font-semibold text-indigo-600 animate-text-shimmer">🌟 Tiến trình bài tập</p>
+        <div class="grid grid-cols-5 lg:grid-cols-2 gap-2.5 mb-5" id="stepper"></div>
+        <div class="mb-5">
+          <div class="hidden p-2.5 rounded-lg text-sm" id="submissionStatus" aria-live="polite"></div>
         </div>
-        <div class="total-score" id="totalScore">
-          <h3>🏆 Kết quả của bạn</h3>
-          <div class="stars" id="totalStars"></div>
-          <p id="scoreMessage" style="margin-top: 12px; font-size: 16px;"></p>
+        <div class="hidden mt-5 p-5 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl text-white" id="totalScore">
+          <h3 class="mb-3 text-lg font-bold">🏆 Kết quả của bạn</h3>
+          <div class="text-3xl tracking-wider mb-3" id="totalStars"></div>
+          <p id="scoreMessage" class="mt-3 text-base"></p>
         </div>
       </div>
-      <div class="container" id="exerciseContainer"></div>
+      <div class="flex-1 max-w-5xl mx-auto w-full" id="exerciseContainer"></div>
     `;
 
     stepperElement = section.querySelector('#stepper');
@@ -446,49 +474,51 @@
     const title = exerciseTitles[exercise.id] || exercise.defaultTitle;
 
     return `
-      <article class="exercise-card" data-step="${exercise.id}">
-        <div class="exercise-header">
-          <div class="exercise-number">${exercise.id}</div>
-          <h2 class="exercise-title" id="${titleId}">${title}</h2>
+      <article class="hidden bg-white rounded-xl p-6 mb-6 shadow-xl animate-card-enter" data-step="${exercise.id}">
+        <div class="flex items-center gap-3 mb-5 pb-4 border-b-4 border-indigo-500">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 text-white flex items-center justify-center font-bold text-lg flex-shrink-0 animate-number-bounce">${exercise.id}</div>
+          <h2 class="text-xl font-bold text-slate-800 m-0 animate-title-slide" id="${titleId}">${title}</h2>
         </div>
-        <div class="section">
-          <div class="section-title">📋 Yêu cầu</div>
-          <div class="requirement-box">
-            <h4>${requirementHeading}</h4>
-            <div class="demo-form">${exercise.requirementDemo}</div>
+        <div class="mb-5 animate-section-fade" style="animation-delay: 0.1s">
+          <div class="bg-indigo-50 px-4 py-2.5 border-l-4 border-indigo-500 font-semibold text-indigo-600 mb-3 rounded animate-section-title">📋 Yêu cầu</div>
+          <div class="bg-white border-2 border-slate-200 rounded-lg p-5 mb-3 animate-box-glow">
+            <h4 class="m-0 mb-3 text-slate-800 text-base font-bold">${requirementHeading}</h4>
+            <div class="bg-slate-50 border border-slate-200 rounded-md p-4 font-sans text-sm mt-3 leading-relaxed animate-demo-slide">${exercise.requirementDemo}</div>
           </div>
         </div>
-        <div class="section">
-          <div class="section-title">💡 Mẫu cú pháp</div>
-          <div class="syntax-box">${exercise.syntax}</div>
+        <div class="mb-5 animate-section-fade" style="animation-delay: 0.2s">
+          <div class="bg-indigo-50 px-4 py-2.5 border-l-4 border-indigo-500 font-semibold text-indigo-600 mb-3 rounded animate-section-title">💡 Mẫu cú pháp</div>
+          <div class="bg-slate-50 border border-slate-200 rounded-md p-4 font-mono text-xs text-slate-800 overflow-x-auto leading-relaxed animate-syntax-glow">${exercise.syntax}</div>
         </div>
-        <div class="section">
-          <div class="section-title">✍️ Viết code của bạn</div>
-          <div class="code-editor">
-            <textarea id="code${exercise.id}" placeholder="${placeholder}"></textarea>
-            <div class="error-message" id="error${exercise.id}"></div>
+        <div class="mb-5 animate-section-fade" style="animation-delay: 0.3s">
+          <div class="bg-indigo-50 px-4 py-2.5 border-l-4 border-indigo-500 font-semibold text-indigo-600 mb-3 rounded animate-section-title">✍️ Viết code của bạn</div>
+          <div class="relative">
+            <textarea id="code${exercise.id}" placeholder="${placeholder}" class="w-full min-h-[200px] p-4 border-2 border-slate-300 rounded-lg font-mono text-sm leading-relaxed resize-y bg-white text-slate-800 transition-all duration-300 focus:outline-none focus:border-indigo-500 focus:ring-3 focus:ring-indigo-200 hover:border-indigo-400 animate-textarea-focus"></textarea>
+            <div class="hidden mt-3 p-3 rounded-lg text-xs" id="error${exercise.id}"></div>
           </div>
-          <div class="button-group">
-            <button class="btn btn-run" onclick="window.runCode(${exercise.id})"><span>▶</span> Chạy code</button>
-            <button class="btn btn-clear" onclick="window.clearCode(${exercise.id})">🗑️ Xóa</button>
+          <div class="flex gap-3 mt-3 flex-wrap">
+            <button class="btn-run-code" onclick="window.runCode(${exercise.id})">
+              <span>▶ Chạy code</span>
+            </button>
+            <button class="px-6 py-2.5 rounded-lg border-none font-semibold text-sm cursor-pointer transition-all duration-200 bg-slate-200 text-slate-600 hover:bg-slate-300 active:translate-y-0" onclick="window.clearCode(${exercise.id})">🗑️ Xóa</button>
           </div>
-          <div class="step-feedback" id="feedback${exercise.id}" role="status" aria-live="polite"></div>
+          <div class="hidden mt-3 p-3 rounded-lg text-sm" id="feedback${exercise.id}" role="status" aria-live="polite"></div>
         </div>
-        <div class="section">
-          <div class="section-title">👀 Kết quả hiển thị</div>
-          <div class="preview-box" id="preview${exercise.id}">
-            <div class="preview-placeholder">Nhấn "Chạy code" để xem kết quả</div>
+        <div class="mb-5 animate-section-fade" style="animation-delay: 0.4s">
+          <div class="bg-indigo-50 px-4 py-2.5 border-l-4 border-indigo-500 font-semibold text-indigo-600 mb-3 rounded animate-section-title">👀 Kết quả hiển thị</div>
+          <div class="bg-slate-50 border border-slate-200 rounded-md p-4 font-sans text-sm mt-3 leading-relaxed min-h-[150px] animate-preview-glow" id="preview${exercise.id}">
+            <div class="text-center text-slate-400 italic py-10 px-5">Nhấn "Chạy code" để xem kết quả</div>
           </div>
         </div>
-        <div class="answer-section" id="answer${exercise.id}">
-          <div class="answer-header">
-            <h3 class="answer-title">✅ Đáp án</h3>
-            <div class="score-display">
+        <div class="hidden bg-yellow-50 border-2 border-yellow-400 rounded-lg p-5 mt-5 animate-answer-reveal" id="answer${exercise.id}">
+          <div class="flex items-center gap-3 mb-4 pb-3 border-b-2 border-yellow-400">
+            <h3 class="text-base font-bold text-slate-800 m-0">✅ Đáp án</h3>
+            <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full border-2 border-yellow-400 ml-auto">
               <span>Điểm:</span>
-              <span class="star" id="star${exercise.id}">⭐</span>
+              <span class="text-2xl text-slate-300" id="star${exercise.id}">⭐</span>
             </div>
           </div>
-          <div class="answer-code" id="answerCode${exercise.id}"></div>
+          <div class="bg-slate-50 border border-slate-200 rounded-md p-4 font-mono text-xs text-slate-800 overflow-x-auto leading-relaxed whitespace-pre-wrap break-words" id="answerCode${exercise.id}"></div>
         </div>
       </article>
     `;
@@ -503,15 +533,37 @@
     exerciseData.forEach(exercise => {
       const btn = document.createElement('button');
       btn.type = 'button';
-      btn.className = 'stepper-item';
-      btn.innerHTML = `<span class="step-index">${exercise.id}</span><span class="sr-only">Bài ${exercise.id}</span>`;
+      btn.className = 'border-2 border-slate-200 rounded-xl bg-white p-4 cursor-pointer transition-all duration-200 flex items-center justify-center hover:border-indigo-400 hover:shadow-md animate-stepper-hover';
+      btn.innerHTML = `<span class="w-9 h-9 rounded-full inline-flex items-center justify-center bg-slate-200 text-slate-600 font-bold transition-all duration-200">${exercise.id}</span><span class="sr-only">Bài ${exercise.id}</span>`;
 
       if (completedSteps.has(exercise.id)) {
-        btn.classList.add('completed');
+        btn.classList.remove('border-slate-200');
+        btn.classList.add('border-green-500', 'animate-stepper-complete');
+        const indexSpan = btn.querySelector('span');
+        if (indexSpan) {
+          indexSpan.classList.remove('bg-slate-200', 'text-slate-600');
+          indexSpan.classList.add('bg-green-500', 'text-white', 'animate-star-spin');
+        }
       }
 
       if (exercise.id === currentStep) {
-        btn.classList.add('active');
+        btn.classList.remove('border-slate-200');
+        btn.classList.add('stepper-active', 'shadow-lg', 'animate-stepper-active');
+        const indexSpan = btn.querySelector('span');
+        if (indexSpan) {
+          indexSpan.classList.remove('bg-slate-200', 'text-slate-600');
+          indexSpan.classList.add('stepper-active-index', 'text-white');
+        }
+        // Update colors based on theme
+        if (window.ThemeManager) {
+          const savedTheme = localStorage.getItem('gameTheme') || 'default';
+          const themeColors = window.ThemeManager.getThemeColors(savedTheme);
+          btn.style.borderColor = themeColors[1];
+          btn.style.boxShadow = `0 4px 12px ${themeColors[1]}30`;
+          if (indexSpan) {
+            indexSpan.style.backgroundColor = themeColors[1];
+          }
+        }
       }
 
       btn.addEventListener('click', () => setCurrentStep(exercise.id));
@@ -535,13 +587,15 @@
   }
 
   function updateStepVisibility() {
-    const cards = document.querySelectorAll('.exercise-card');
+    const cards = document.querySelectorAll('[data-step]');
     cards.forEach(card => {
       const step = Number(card.dataset.step);
       if (step === currentStep) {
-        card.classList.remove('exercise-card--hidden');
+        card.classList.remove('hidden');
+        card.classList.add('animate-card-enter');
       } else {
-        card.classList.add('exercise-card--hidden');
+        card.classList.add('hidden');
+        card.classList.remove('animate-card-enter');
       }
     });
   }
@@ -561,7 +615,13 @@
     if (!star) {
       return;
     }
-    star.style.color = isCorrect ? '#ffd700' : '#ddd';
+    if (isCorrect) {
+      star.classList.remove('text-slate-300');
+      star.classList.add('text-yellow-500', 'animate-star-glow');
+    } else {
+      star.classList.remove('text-yellow-500', 'animate-star-glow');
+      star.classList.add('text-slate-300');
+    }
   }
 
   function updateStepFeedback(step, message, status) {
@@ -570,13 +630,13 @@
       return;
     }
     feedback.textContent = message;
-    feedback.classList.remove('step-feedback--success', 'step-feedback--error');
+    feedback.classList.remove('hidden', 'bg-green-100', 'border-green-500', 'text-green-800', 'bg-red-100', 'border-red-500', 'text-red-800');
     if (status === 'success') {
-      feedback.classList.add('step-feedback--success');
+      feedback.classList.add('block', 'bg-green-100', 'border-2', 'border-green-500', 'text-green-800', 'animate-feedback-success');
     } else if (status === 'error') {
-      feedback.classList.add('step-feedback--error');
+      feedback.classList.add('block', 'bg-red-100', 'border-2', 'border-red-500', 'text-red-800', 'animate-feedback-error');
     } else {
-      feedback.style.display = 'none';
+      feedback.classList.add('hidden');
     }
   }
 
@@ -589,13 +649,19 @@
       return;
     }
     if (!message) {
-      submissionStatusElement.style.display = 'none';
-      submissionStatusElement.removeAttribute('data-variant');
+      submissionStatusElement.classList.add('hidden');
       submissionStatusElement.textContent = '';
       return;
     }
     submissionStatusElement.textContent = message;
-    submissionStatusElement.dataset.variant = variant || 'info';
+    submissionStatusElement.classList.remove('hidden', 'bg-blue-100', 'border-blue-500', 'text-blue-800', 'bg-green-100', 'border-green-500', 'text-green-800', 'bg-red-100', 'border-red-500', 'text-red-800');
+    if (variant === 'success') {
+      submissionStatusElement.classList.add('block', 'bg-green-100', 'border-2', 'border-green-500', 'text-green-800');
+    } else if (variant === 'error') {
+      submissionStatusElement.classList.add('block', 'bg-red-100', 'border-2', 'border-red-500', 'text-red-800');
+    } else {
+      submissionStatusElement.classList.add('block', 'bg-blue-100', 'border-2', 'border-blue-500', 'text-blue-800');
+    }
   }
 
   function showTotalScore(totalScore) {
@@ -620,7 +686,8 @@
     }
 
     if (totalScoreDiv) {
-      totalScoreDiv.classList.add('show');
+      totalScoreDiv.classList.remove('hidden');
+      totalScoreDiv.classList.add('block', 'animate-score-reveal');
       totalScoreDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   }
@@ -631,7 +698,8 @@
       const answerCodeDiv = document.getElementById(`answerCode${id}`);
       if (answerSection && answerCodeDiv) {
         answerCodeDiv.textContent = answers[id];
-        answerSection.classList.add('show');
+        answerSection.classList.remove('hidden');
+        answerSection.classList.add('block', 'animate-answer-reveal');
       }
     });
   }
@@ -661,6 +729,7 @@
     normalized = normalized.replace(/\bfor\s*=\s*["'][^"']*["']/gi, 'for="X"');
     normalized = normalized.replace(/\bid\s*=\s*["'][^"']*["']/gi, 'id="X"');
     normalized = normalized.replace(/\bname\s*=\s*["'][^"']*["']/gi, 'name="X"');
+    normalized = normalized.replace(/\bvalue\s*=\s*["'][^"']*["']/gi, 'value="X"');
     return normalized;
   }
 
@@ -673,8 +742,14 @@
   }
 
   function renderPreview(previewDiv, code) {
+    // Remove placeholder if exists
+    const placeholder = previewDiv.querySelector('.text-center.text-slate-400');
+    if (placeholder) {
+      placeholder.remove();
+    }
     previewDiv.innerHTML = code;
-    previewDiv.classList.add('has-content');
+    previewDiv.classList.remove('bg-slate-50', 'border-slate-200');
+    previewDiv.classList.add('bg-white', 'border-2', 'border-slate-300', 'animate-preview-glow');
 
     const forms = previewDiv.querySelectorAll('form');
     forms.forEach(form => {
@@ -733,12 +808,14 @@
     }
 
     const code = codeTextarea.value.trim();
-    errorDiv.style.display = 'none';
+    errorDiv.classList.add('hidden');
+    errorDiv.classList.remove('block', 'bg-red-50', 'border-red-500', 'text-red-700', 'bg-yellow-50', 'border-yellow-500', 'text-yellow-800');
     errorDiv.textContent = '';
 
     if (!code) {
       errorDiv.textContent = '⚠️ Vui lòng nhập code HTML trước khi chạy!';
-      errorDiv.style.display = 'block';
+      errorDiv.classList.remove('hidden');
+      errorDiv.classList.add('block', 'bg-yellow-50', 'border-2', 'border-yellow-500', 'text-yellow-800');
       return;
     }
 
@@ -775,9 +852,15 @@
       }
     } catch (error) {
       errorDiv.textContent = `❌ Lỗi: ${error.message}`;
-      errorDiv.style.display = 'block';
-      previewDiv.innerHTML = '<div class="preview-placeholder">Code có lỗi, vui lòng kiểm tra lại</div>';
-      previewDiv.classList.remove('has-content');
+      errorDiv.classList.remove('hidden');
+      errorDiv.classList.add('block', 'bg-red-50', 'border-2', 'border-red-500', 'text-red-700');
+      const errorPlaceholder = document.createElement('div');
+      errorPlaceholder.className = 'text-center text-slate-400 italic py-10 px-5';
+      errorPlaceholder.textContent = 'Code có lỗi, vui lòng kiểm tra lại';
+      previewDiv.innerHTML = '';
+      previewDiv.appendChild(errorPlaceholder);
+      previewDiv.classList.remove('bg-white', 'border-2', 'border-slate-300', 'animate-preview-glow');
+      previewDiv.classList.add('bg-slate-50', 'border-slate-200');
     }
   };
 
@@ -792,11 +875,18 @@
     }
 
     codeTextarea.value = '';
-    previewDiv.innerHTML = '<div class="preview-placeholder">Nhấn "Chạy code" để xem kết quả</div>';
-    previewDiv.classList.remove('has-content');
-    errorDiv.style.display = 'none';
+    const placeholder = document.createElement('div');
+    placeholder.className = 'text-center text-slate-400 italic py-10 px-5';
+    placeholder.textContent = 'Nhấn "Chạy code" để xem kết quả';
+    previewDiv.innerHTML = '';
+    previewDiv.appendChild(placeholder);
+    previewDiv.classList.remove('bg-white', 'border-2', 'border-slate-300', 'animate-preview-glow');
+    previewDiv.classList.add('bg-slate-50', 'border-slate-200');
+    errorDiv.classList.add('hidden');
+    errorDiv.classList.remove('block', 'bg-red-50', 'border-red-500', 'text-red-700', 'bg-yellow-50', 'border-yellow-500', 'text-yellow-800');
     errorDiv.textContent = '';
-    feedback.classList.remove('step-feedback--success', 'step-feedback--error');
+    feedback.classList.remove('block', 'bg-green-100', 'border-green-500', 'text-green-800', 'bg-red-100', 'border-red-500', 'text-red-800', 'animate-feedback-success', 'animate-feedback-error');
+    feedback.classList.add('hidden');
     feedback.textContent = '';
     completedSteps.delete(exerciseNum);
     updateStarState(exerciseNum, false);

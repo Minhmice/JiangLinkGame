@@ -19,11 +19,11 @@ function doPost(e) {
     const score = Number(data.score || 0);
     const duration = Number(data.duration || 0);
     
-    // Find row for this group (row 1 is header, groups start at row 2)
-    // Group 1 = row 2, Group 2 = row 3, etc.
+    // Find row for this team (row 1 is header, teams start at row 2)
+    // Team 1 = row 2, Team 2 = row 3, etc.
     const row = parseInt(group) + 1;
     
-    // Update the row: Column A = Nhóm, Column B = Điểm, Column C = Thời gian
+    // Update the row: Column A = Đội, Column B = Điểm, Column C = Thời gian
     sheet.getRange(row, 1).setValue(group);
     sheet.getRange(row, 2).setValue(score);
     sheet.getRange(row, 3).setValue(duration);

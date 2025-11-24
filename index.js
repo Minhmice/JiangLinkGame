@@ -25,6 +25,12 @@
   }
 
   if (startBtn) {
+    // Update button color on load
+    if (window.ThemeManager) {
+      const savedTheme = localStorage.getItem('gameTheme') || 'default';
+      window.ThemeManager.updateButtonColors(savedTheme);
+    }
+    
     startBtn.addEventListener('click', () => {
       const metadata = {
         group: group,

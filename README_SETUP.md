@@ -33,8 +33,8 @@
 
 1. Mở Google Sheet: https://docs.google.com/spreadsheets/d/1jMUyLFaYPgv9h8RpaI4C_XA12SRYMMQgMG1QIADOFtw/edit
 2. Đảm bảo cấu trúc sheet như sau:
-   - Row 1: Header (Nhóm | Điểm | Thời gian)
-   - Row 2-7: Dữ liệu cho các nhóm 1-6
+   - Row 1: Header (Đội | Điểm | Thời gian)
+   - Row 2-13: Dữ liệu cho các đội 1-12
 
 ## Lưu ý
 

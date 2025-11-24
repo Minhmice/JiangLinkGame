@@ -5,41 +5,86 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thiết lập thông tin - Bài tập HTML Form</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
  </head>
- <body lang="vi">
-  <div class="wrapper">
+ <body lang="vi" class="min-h-screen overflow-x-hidden bg-gradient-animated">
+  <div class="min-h-screen py-6 px-4 pb-16 overflow-y-auto relative z-10">
    <div>
-    <div class="header">
-     <h1>🍳 Vòng 3: Nấu</h1>
-     <p>Thiết lập thông tin trước khi bắt đầu nấu ăn</p>
+    <div class="text-center mb-8 text-white">
+     <h1 class="text-3xl md:text-4xl font-bold mb-2 drop-shadow-lg animate-title-glow">🍳 Vòng 3: Nấu</h1>
+     <p class="text-base opacity-95">Thiết lập thông tin trước khi bắt đầu nấu ăn</p>
     </div>
-    <div class="intro-card animate-fade-in">
-     <h2>🍽️ Chuẩn bị nấu ăn</h2>
-     <p>Chọn nhóm của bạn và thời gian nấu ăn trước khi bắt đầu thử thách nấu ăn 10 món!</p>
-     <div class="user-info-grid">
-      <label class="form-control animate-slide-up" style="animation-delay: 0.1s;">
-       Nhóm học
-       <select id="groupSelect">
-        <option value="1">Nhóm 1</option>
-        <option value="2">Nhóm 2</option>
-        <option value="3">Nhóm 3</option>
-        <option value="4">Nhóm 4</option>
-        <option value="5">Nhóm 5</option>
-        <option value="6">Nhóm 6</option>
+    <div class="w-full max-w-2xl bg-white/95 rounded-2xl p-8 md:p-10 text-center mx-auto shadow-2xl animate-card-float">
+     <h2 class="text-2xl md:text-3xl font-bold mb-4 text-slate-900 animate-text-shimmer">🍽️ Chuẩn bị nấu ăn</h2>
+     <p class="mb-6 text-slate-600">Chọn đội của bạn và thời gian nấu ăn trước khi bắt đầu nấu một món ăn này!</p>
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-7">
+      <label class="flex flex-col gap-2 text-sm text-slate-700 font-semibold text-left animate-slide-up" style="animation-delay: 0.1s;">
+       Đội học
+       <select id="groupSelect" class="px-3 py-2.5 rounded-lg border border-slate-300 text-sm font-inherit bg-white transition-all duration-300 focus:outline-none focus:border-purple-600 focus:ring-3 focus:ring-purple-200 hover:border-purple-400">
+        <option value="1">Đội 1</option>
+        <option value="2">Đội 2</option>
+        <option value="3">Đội 3</option>
+        <option value="4">Đội 4</option>
+        <option value="5">Đội 5</option>
+        <option value="6">Đội 6</option>
+        <option value="7">Đội 7</option>
+        <option value="8">Đội 8</option>
+        <option value="9">Đội 9</option>
+        <option value="10">Đội 10</option>
+        <option value="11">Đội 11</option>
+        <option value="12">Đội 12</option>
        </select>
       </label>
-      <label class="form-control animate-slide-up" style="animation-delay: 0.2s;">
+      <label class="flex flex-col gap-2 text-sm text-slate-700 font-semibold text-left animate-slide-up" style="animation-delay: 0.2s;">
        Thời gian nấu ăn (phút)
-       <input type="number" id="durationInput" min="5" max="15" step="1" value="5" class="duration-input">
+       <input type="number" id="durationInput" min="5" max="15" step="1" value="5" class="px-3 py-2.5 rounded-lg border border-slate-300 text-sm font-inherit bg-white transition-all duration-300 focus:outline-none focus:border-purple-600 focus:ring-3 focus:ring-purple-200 hover:border-purple-400">
       </label>
      </div>
-     <div class="start-actions animate-slide-up" style="animation-delay: 0.3s;">
-      <button class="btn-start" id="startBtn">🚀 Bắt đầu nấu</button>
+     <div class="mt-7 animate-slide-up" style="animation-delay: 0.3s;">
+      <button id="startBtn" class="px-8 py-3.5 rounded-xl border-none font-bold text-base cursor-pointer text-white bg-gradient-to-br from-blue-600 to-purple-600 shadow-lg shadow-purple-500/30 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-purple-500/40 active:translate-y-0">🚀 Bắt đầu nấu</button>
      </div>
     </div>
    </div>
   </div>
+  <!-- Theme Switcher Button -->
+  <button id="themeSwitcher" class="theme-switcher-btn" title="Đổi theme màu">
+   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <circle cx="12" cy="12" r="5"></circle>
+    <path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"></path>
+   </svg>
+  </button>
+  <!-- Theme Menu -->
+  <div id="themeMenu" class="theme-menu hidden">
+   <div class="theme-menu-header">Chọn Theme</div>
+   <div class="theme-options">
+    <button class="theme-option active" data-theme="default" data-name="Mặc định">
+     <div class="theme-preview" style="background: linear-gradient(135deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);"></div>
+     <span>Mặc định</span>
+    </button>
+    <button class="theme-option" data-theme="ocean" data-name="Đại dương">
+     <div class="theme-preview" style="background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #4facfe);"></div>
+     <span>Đại dương</span>
+    </button>
+    <button class="theme-option" data-theme="sunset" data-name="Hoàng hôn">
+     <div class="theme-preview" style="background: linear-gradient(135deg, #fa709a, #fee140, #ff6e7f, #bfe9ff);"></div>
+     <span>Hoàng hôn</span>
+    </button>
+    <button class="theme-option" data-theme="forest" data-name="Rừng xanh">
+     <div class="theme-preview" style="background: linear-gradient(135deg, #11998e, #38ef7d, #0f2027, #203a43);"></div>
+     <span>Rừng xanh</span>
+    </button>
+    <button class="theme-option" data-theme="purple" data-name="Tím mộng mơ">
+     <div class="theme-preview" style="background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #4facfe);"></div>
+     <span>Tím mộng mơ</span>
+    </button>
+    <button class="theme-option" data-theme="dark" data-name="Tối">
+     <div class="theme-preview" style="background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460, #533483);"></div>
+     <span>Tối</span>
+    </button>
+   </div>
+  </div>
   <script src="utils.js"></script>
+  <script src="theme.js"></script>
   <script src="index.js"></script>
  </body>
 </html>

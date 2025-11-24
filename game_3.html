@@ -10,18 +10,56 @@
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
   <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
  </head>
- <body lang="vi">
-  <div class="wrapper">
-   <div class="header">
-    <h1 id="mainTitle">🍳 Vòng 3: Nấu</h1>
-    <p>Làm theo từng món ăn, viết code và chạy thử để xem kết quả!</p>
+ <body lang="vi" class="min-h-screen overflow-x-hidden bg-gradient-animated">
+  <div class="min-h-screen py-6 px-4 pb-16 overflow-y-auto relative z-10">
+   <div class="text-center mb-8 text-white">
+    <h1 id="mainTitle" class="text-3xl md:text-4xl font-bold mb-2 drop-shadow-lg animate-title-glow">🍳 Vòng 3: Nấu</h1>
+    <p class="text-base opacity-95">Làm theo từng bài tập, viết code và chạy thử để xem kết quả!</p>
    </div>
    <div id="app"></div>
+   <!-- Theme Switcher Button -->
+   <button id="themeSwitcher" class="theme-switcher-btn" title="Đổi theme màu">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <circle cx="12" cy="12" r="5"></circle>
+     <path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"></path>
+    </svg>
+   </button>
+   <!-- Theme Menu -->
+   <div id="themeMenu" class="theme-menu hidden">
+   <div class="theme-menu-header">Chọn Theme</div>
+   <div class="theme-options">
+    <button class="theme-option active" data-theme="default" data-name="Mặc định">
+     <div class="theme-preview" style="background: linear-gradient(135deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);"></div>
+     <span>Mặc định</span>
+    </button>
+    <button class="theme-option" data-theme="ocean" data-name="Đại dương">
+     <div class="theme-preview" style="background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #4facfe);"></div>
+     <span>Đại dương</span>
+    </button>
+    <button class="theme-option" data-theme="sunset" data-name="Hoàng hôn">
+     <div class="theme-preview" style="background: linear-gradient(135deg, #fa709a, #fee140, #ff6e7f, #bfe9ff);"></div>
+     <span>Hoàng hôn</span>
+    </button>
+    <button class="theme-option" data-theme="forest" data-name="Rừng xanh">
+     <div class="theme-preview" style="background: linear-gradient(135deg, #11998e, #38ef7d, #0f2027, #203a43);"></div>
+     <span>Rừng xanh</span>
+    </button>
+    <button class="theme-option" data-theme="purple" data-name="Tím mộng mơ">
+     <div class="theme-preview" style="background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #4facfe);"></div>
+     <span>Tím mộng mơ</span>
+    </button>
+    <button class="theme-option" data-theme="dark" data-name="Tối">
+     <div class="theme-preview" style="background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460, #533483);"></div>
+     <span>Tối</span>
+    </button>
+   </div>
+   </div>
   </div>
   <script>
     window.GOOGLE_SHEET_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbz5OCsKuQw3-Ny2Qh-7BR1F3ZLjzgo0wAeiifIAjTu7fjH-6bPlRdGv2rtsuAamRKbD7A/exec';
   </script>
   <script src="utils.js"></script>
+  <script src="theme.js"></script>
   <script src="game_3.js"></script>
  </body>
 </html>
