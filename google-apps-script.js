@@ -15,13 +15,23 @@ function doPost(e) {
     
     // Parse JSON data
     const data = JSON.parse(e.postData.contents);
-    const group = String(data.group || '1');
+    const group = String(data.group || '1.1');
     const score = Number(data.score || 0);
     const duration = Number(data.duration || 0);
     
     // Find row for this team (row 1 is header, teams start at row 2)
-    // Team 1 = row 2, Team 2 = row 3, etc.
-    const row = parseInt(group) + 1;
+    // Format: "1.1", "1.2", "2.1", "2.2", ... "6.2"
+    // Mapping: 1.1 -> row 2, 1.2 -> row 3, 2.1 -> row 4, 2.2 -> row 5, etc.
+    let row = 2; // Default to row 2
+    if (group.includes('.')) {
+      const parts = group.split('.');
+      const major = parseInt(parts[0]) || 1;
+      const minor = parseInt(parts[1]) || 1;
+      row = (major - 1) * 2 + minor + 1;
+    } else {
+      // Fallback for old format (if any)
+      row = parseInt(group) + 1;
+    }
     
     // Update the row: Column A = Đội, Column B = Điểm, Column C = Thời gian
     sheet.getRange(row, 1).setValue(group);

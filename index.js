@@ -5,7 +5,7 @@
   const durationInput = document.getElementById('durationInput');
   const startBtn = document.getElementById('startBtn');
 
-  let group = '1';
+  let group = '1.1';
   let duration = 5;
 
   if (groupSelect) {
